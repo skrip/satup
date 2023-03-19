@@ -1,8 +1,9 @@
 run apllication using docker :
 
-docker-compose up
+docker-compose up --build --no-cache 
 
 after finish building, and there is text Ready on the logs,
+
 open browser : http://localhost:3000
 
 
@@ -10,14 +11,16 @@ without docker :
 
 npm i
 
-untuk test : 
+for test : 
 
 npm test
 
-untuk run program :
+run program :
 
 npm run dev
 
-notes : mongodb available di localhost:27017
+
+condition : 
+mongodb is available at localhost:27017
 
 
