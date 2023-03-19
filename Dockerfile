@@ -8,8 +8,8 @@ ENV MONGODB_URI "mongodb://mongo:27017"
 
 RUN npm install
 
-COPY . .
+COPY . ./
 
-RUN npm run build
+#RUN npm run build
 
 CMD ["npm", "run", "dev"]

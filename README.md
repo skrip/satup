@@ -1,6 +1,6 @@
 run apllication using docker :
 
-docker-compose up --build --no-cache 
+docker-compose up --build
 
 after finish building, and there is text Ready on the logs,
 
