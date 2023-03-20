@@ -22,10 +22,15 @@ export async function connectToMongoDB() {
       ? process.env.MONGODB_NAME
       : "datatest";
 
-    const options = {
+    let options = {
       directConnection: true,
     };
 
+    if(MONGODB_URI.includes('mongodb+srv')){
+      options = {
+        directConnection: false,
+      };
+    }
     console.log("mongodb ", MONGODB_URI);
     const client: mongoDB.MongoClient = new mongoDB.MongoClient(
       MONGODB_URI,
