@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import isEmailValidator from 'validator/lib/isEmail';
 import { ObjectId } from "mongodb";
 
 export const CustomerSchema = Yup.object().shape({
@@ -11,7 +12,8 @@ export const CustomerSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string().email("Invalid email").required("Required")
+  .test("is-valid", (message) => `${message.path} is invalid`, (value) => value ? isEmailValidator(value) : new Yup.ValidationError("Invalid value")),
   gender: Yup.string().required().oneOf(["male", "female"]),
   address: Yup.array()
     .of(
